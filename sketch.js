@@ -95,6 +95,7 @@ if (basketX + basketWidth > width) {
     appleX - appleWidth / 2 <= basketX + basketWidth
   ) {
     appleY = 0;
+    score = score + 1;
   }
 
   // tweede appel wordt gevangen
@@ -105,5 +106,6 @@ if (basketX + basketWidth > width) {
     appleX2 - appleWidth / 2 <= basketX + basketWidth
   ) {
     appleY2 = 0;
+    score = score + 1;
   }
 }
