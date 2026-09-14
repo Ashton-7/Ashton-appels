@@ -1,0 +1,17 @@
+{
+  "name": "Opfris opdracht",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+
+  "forwardPorts": [8080],
+
+  "portsAttributes": {
+    "8080": {
+      "label": "Webserver",
+      "onAutoForward": "openBrowser"
+    }
+  },
+
+
+  "postCreateCommand": "npm install -g serve",
+  "postStartCommand": "serve . -l 8080"
+}
