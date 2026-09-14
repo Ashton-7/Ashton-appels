@@ -14,9 +14,13 @@
 /* ********************************************* */
 let appelX = 600; // x-positie van appel
 let appelY = 50;  // y-positie van appel
+let appelY2 = 40;
+let appelX2 = 400;
 let appleBreedte = 20;
-
-
+let mandX = 500;
+let mandY = 600;
+let mandBreedte = 60;
+let mandLengte= 130;
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
@@ -38,10 +42,21 @@ function setup() {
  */
 function draw() {
   // teken achtergrond
-  background('black');
+  background('green');
 
   // teken appel
   noStroke();         // geen lijntje om de vorm heen
   fill(255, 0, 0)     // vulkleur wordt rood
-  rect(appelX, appelY, appleBreedte, appleBreedte);
+  ellipse(appelX, appelY, appleBreedte, appleBreedte);
+  appelY = appelY + 2
+  fill(210, 0, 0)     // vulkleur wordt rood
+  ellipse(appelX2, appelY2, appleBreedte, appleBreedte);
+  appelY2 = appelY2 + 4
+    // teken mand
+  noStroke();         // geen lijntje om de vorm heen
+  fill(223, 224, 161)     // vulkleur wordt rood
+  rect(mandX, mandY, mandLengte, mandBreedte);
+  mandX = mouseX
 }
+
+
