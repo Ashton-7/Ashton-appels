@@ -1,10 +1,10 @@
-/* JavaScript opfris opdracht
-   
-    Lees de README voor uitleg
+/* JavaScript opfris opdracht 
+    
+    Lees de README voor uitleg 
  */
 
-/*
- * instellingen om foutcontrole van je code beter te maken 
+/* 
+ * instellingen om foutcontrole van je code beter te maken  
  */
 ///<reference path=".vscode/p5.global-mode.d.ts" />
 "use strict"
@@ -12,51 +12,93 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
-let appelX = 600; // x-positie van appel
-let appelY = 50;  // y-positie van appel
-let appelY2 = 40;
-let appelX2 = 400;
-let appleBreedte = 20;
-let mandX = 500;
-let mandY = 600;
-let mandBreedte = 60;
-let mandLengte= 130;
+let appleX = 600; // x-positie van appel 
+let appleY = 50;  // y-positie van appel 
+let appleY2 = 40; 
+let appleX2 = 400; 
+let appleWidth = 20; 
+let basketX = 500; 
+let basketY = 600; 
+let basketWidth = 130; 
+let basketHeight = 60; 
+
 /* ********************************************* */
 /* setup() en draw() functies / hoofdprogramma   */
 /* ********************************************* */
 
-/**
- * setup
- * de code in deze functie wordt één keer uitgevoerd door
- * de p5 library, zodra het spel geladen is in de browser
+/** 
+ * setup 
+ * de code in deze functie wordt één keer uitgevoerd door 
+ * de p5 library, zodra het spel geladen is in de browser 
  */
-function setup() {
-  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen
-  createCanvas(1280, 720);
+function setup() { 
+  // Maak een canvas (rechthoek) waarin je je speelveld kunt tekenen 
+  createCanvas(1280, 720); 
+} 
+
+/** 
+ * draw 
+ * de code in deze functie wordt 50 keer per seconde 
+ * uitgevoerd door de p5 library, nadat de setup functie klaar is 
+ */
+function draw() { 
+  // teken achtergrond 
+  background('green'); 
+
+  // teken appel 
+  noStroke();         // geen lijntje om de vorm heen 
+  fill(255, 0, 0)     // vulkleur wordt rood 
+  ellipse(appleX, appleY, appleWidth, appleWidth); 
+  appleY = appleY + 2 
+
+appleY = appleY + 2;
+
+if (appleY > height) {
+  appleY = 0;
+  appleX = random(0, width);
 }
 
-/**
- * draw
- * de code in deze functie wordt 50 keer per seconde
- * uitgevoerd door de p5 library, nadat de setup functie klaar is
- */
-function draw() {
-  // teken achtergrond
-  background('green');
+  fill(210, 0, 0)     // vulkleur wordt rood 
+  ellipse(appleX2, appleY2, appleWidth, appleWidth); 
+  appleY2 = appleY2 + 4 
 
-  // teken appel
-  noStroke();         // geen lijntje om de vorm heen
-  fill(255, 0, 0)     // vulkleur wordt rood
-  ellipse(appelX, appelY, appleBreedte, appleBreedte);
-  appelY = appelY + 2
-  fill(210, 0, 0)     // vulkleur wordt rood
-  ellipse(appelX2, appelY2, appleBreedte, appleBreedte);
-  appelY2 = appelY2 + 4
-    // teken mand
-  noStroke();         // geen lijntje om de vorm heen
-  fill(223, 224, 161)     // vulkleur wordt rood
-  rect(mandX, mandY, mandLengte, mandBreedte);
-  mandX = mouseX
+if (appleY2 > height) {
+  appleY2 = 0;
+  appleX2 = random(0, width);
 }
 
+  // teken mand 
+  noStroke();         // geen lijntje om de vorm heen 
+  fill(223, 224, 161)     // vulkleur wordt rood 
+  rect(basketX, basketY, basketWidth, basketHeight); 
 
+  basketX = mouseX 
+
+  if (basketX < 0) {
+  basketX = 0;
+}
+
+if (basketX + basketWidth > width) {
+  basketX = width - basketWidth;
+}
+
+  // eerste appel wordt gevangen
+  if (
+    appleY + appleWidth / 2 >= basketY &&
+    appleY - appleWidth / 2 <= basketY + basketHeight &&
+    appleX + appleWidth / 2 >= basketX &&
+    appleX - appleWidth / 2 <= basketX + basketWidth
+  ) {
+    appleY = 0;
+  }
+
+  // tweede appel wordt gevangen
+  if (
+    appleY2 + appleWidth / 2 >= basketY &&
+    appleY2 - appleWidth / 2 <= basketY + basketHeight &&
+    appleX2 + appleWidth / 2 >= basketX &&
+    appleX2 - appleWidth / 2 <= basketX + basketWidth
+  ) {
+    appleY2 = 0;
+  }
+}
