@@ -12,6 +12,7 @@
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
 /* ********************************************* */
+let score = 0;
 let appleX = 600; // x-positie van appel 
 let appleY = 50;  // y-positie van appel 
 let appleY2 = 40; 
