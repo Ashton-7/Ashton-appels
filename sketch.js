@@ -45,6 +45,10 @@ function setup() {
 function draw() { 
   // teken achtergrond 
   background('green'); 
+  /**score */
+fill(255);
+textSize(30);
+text("Score: " + score, 20, 40);
 
   // teken appel 
   noStroke();         // geen lijntje om de vorm heen 
