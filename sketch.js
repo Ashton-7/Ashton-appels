@@ -61,6 +61,7 @@ appleY = appleY + 2;
 if (appleY > height) {
   appleY = 0;
   appleX = random(0, width);
+  score = score - 1;
 }
 
   fill(210, 0, 0)     // vulkleur wordt rood 
@@ -70,6 +71,7 @@ if (appleY > height) {
 if (appleY2 > height) {
   appleY2 = 0;
   appleX2 = random(0, width);
+  score = score - 1;
 }
 
   // teken mand 
@@ -95,6 +97,7 @@ if (basketX + basketWidth > width) {
     appleX - appleWidth / 2 <= basketX + basketWidth
   ) {
     appleY = 0;
+    appleX = random(0, width);
     score = score + 1;
   }
 
@@ -106,6 +109,7 @@ if (basketX + basketWidth > width) {
     appleX2 - appleWidth / 2 <= basketX + basketWidth
   ) {
     appleY2 = 0;
+    appleX2 = random(0, width);
     score = score + 1;
   }
 }
