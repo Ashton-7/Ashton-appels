@@ -56,28 +56,29 @@ function draw() {
   noStroke();         // geen lijntje om de vorm heen 
   fill(255, 0, 0)     // vulkleur wordt rood 
   ellipse(appleX, appleY, appleWidth, appleWidth);
-  appleY = appleY + 5;
+  appleY = appleY + 8;
 
   if (appleY > height) {
     appleY = 0;
     appleX = random(0, width);
     score = score - 1;
   }
-
+// teken appel
+  noStroke();    
   fill(210, 0, 0)     // vulkleur wordt rood 
   ellipse(appleX2, appleY2, appleWidth, appleWidth)
-  appleY2 = appleY2 + 7
+  appleY2 = appleY2 + 10
 
   if (appleY2 > height) {
     appleY2 = 0;
     appleX2 = random(0, width);
     score = score - 1;
   }
-// teken appel 
+// teken speciale appel 
   noStroke();         // geen lijntje om de vorm heen 
   fill(182, 184, 87)     // vulkleur wordt goud
   ellipse(appleX3, appleY3, appleWidth, appleWidth);
-  appleY3 = appleY3 + 10
+  appleY3 = appleY3 + 15
 
    if (appleY3 > height) {
     appleY3 = 0;
