@@ -17,6 +17,8 @@ let appleX = 600; // x-positie van appel
 let appleY = 50;  // y-positie van appel 
 let appleY2 = 40;
 let appleX2 = 400;
+let appleY3 = 45;
+let appleX3 = 300;
 let appleWidth = 20;
 let basketX = 500;
 let basketY = 600;
@@ -54,9 +56,7 @@ function draw() {
   noStroke();         // geen lijntje om de vorm heen 
   fill(255, 0, 0)     // vulkleur wordt rood 
   ellipse(appleX, appleY, appleWidth, appleWidth);
-  appleY = appleY + 2
-
-  appleY = appleY + 2;
+  appleY = appleY + 5;
 
   if (appleY > height) {
     appleY = 0;
@@ -66,11 +66,22 @@ function draw() {
 
   fill(210, 0, 0)     // vulkleur wordt rood 
   ellipse(appleX2, appleY2, appleWidth, appleWidth)
-  appleY2 = appleY2 + 4
+  appleY2 = appleY2 + 7
 
   if (appleY2 > height) {
     appleY2 = 0;
     appleX2 = random(0, width);
+    score = score - 1;
+  }
+// teken appel 
+  noStroke();         // geen lijntje om de vorm heen 
+  fill(182, 184, 87)     // vulkleur wordt goud
+  ellipse(appleX3, appleY3, appleWidth, appleWidth);
+  appleY3 = appleY3 + 10
+
+   if (appleY3 > height) {
+    appleY3 = 0;
+    appleX3 = random(0, width);
     score = score - 1;
   }
 
@@ -112,4 +123,16 @@ function draw() {
     appleX2 = random(0, width);
     score = score + 1;
   }
+    if (
+    appleY3 + appleWidth / 2 >= basketY &&
+    appleY3 - appleWidth / 2 <= basketY + basketHeight &&
+    appleX3 + appleWidth / 2 >= basketX &&
+    appleX3 - appleWidth / 2 <= basketX + basketWidth
+  ) {
+    appleY3 = 0;
+    appleX3 = random(0, width);
+    score = score + 3;
+  }
 }
+
+
