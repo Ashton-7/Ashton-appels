@@ -44,7 +44,7 @@ function setup() {
  */
 function draw() { 
   // teken achtergrond 
-  background('green'); 
+  background (39, 183, 240); 
   /**score */
 fill(255);
 textSize(30);
@@ -65,7 +65,7 @@ if (appleY > height) {
 }
 
   fill(210, 0, 0)     // vulkleur wordt rood 
-  ellipse(appleX2, appleY2, appleWidth, appleWidth); 
+  ellipse(appleX2, appleY2, appleWidth, appleWidth)
   appleY2 = appleY2 + 4 
 
 if (appleY2 > height) {
